@@ -1,9 +1,12 @@
+
+
 const path = require("path")
 const { fork } = require("child_process")
 const colors = require("colors")
-
+// @ts-ignore
 const { readFileSync, writeFileSync } = require("fs")
-const pkg = JSON.parse(
+// @ts-ignore
+let pkg = JSON.parse(
   readFileSync(path.resolve(__dirname, "..", "package.json"))
 )
 
