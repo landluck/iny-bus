@@ -3,11 +3,11 @@
 
 <p align="center">
     <img src="https://img.shields.io/npm/v/iny-bus.svg?style=flat-square" alt="npm version" />
-    <img src="https://img.shields.io/codecov/c/github/youzan/iny-bus/dev.svg?style=flat-square" alt="Coverage Status" />
-    <img src="https://travis-ci.org/youzan/iny-bus.svg?branch=master" alt="Build Status" />
+    <img src="https://img.shields.io/codecov/c/github/landluck/iny-bus/dev.svg?style=flat-square" alt="Coverage Status" />
+    <img src="https://travis-ci.org/landluck/iny-bus.svg?branch=master" alt="Build Status" />
     <img src="https://img.shields.io/npm/dt/iny-bus.svg?style=flat-square" alt="downloads" />
     <img src="https://img.shields.io/npm/dm/iny-bus.svg?style=flat-square" alt="downloads" />
-    <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/lib/iny-bus.es5.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
+    <!-- <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/lib/iny-bus.es5.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" /> -->
 </p>
 
 ## Features
