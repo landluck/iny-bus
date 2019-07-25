@@ -5,8 +5,6 @@ cache:
 notifications:
   email: landl_ww@163.com
 node_js:
-  - '10'
-  - '11'
   - '8'
 script:
   - npm run test:prod && npm run build
