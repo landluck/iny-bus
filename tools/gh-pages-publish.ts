@@ -1,8 +1,10 @@
 const { cd, exec, echo, touch } = require("shelljs")
+// @ts-ignore
 const { readFileSync } = require("fs")
 const url = require("url")
 
 let repoUrl
+// @ts-ignore
 let pkg = JSON.parse(readFileSync("package.json") as any)
 if (typeof pkg.repository === "object") {
   if (!pkg.repository.hasOwnProperty("url")) {
@@ -15,7 +17,7 @@ if (typeof pkg.repository === "object") {
 
 let parsedUrl = url.parse(repoUrl)
 let repository = (parsedUrl.host || "") + (parsedUrl.path || "")
-console.log(parsedUrl)
+
 let ghToken = process.env.GH_TOKEN || 'a48141557cec57695fac527700b0f41f526839cd'
 
 echo("Deploying docs!!!")
