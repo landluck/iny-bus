@@ -12,7 +12,7 @@
   "author": "landluck <landl_ww@163.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/landluck/iny-bus"
+    "url": "git@github.com:landluck/iny-bus"
   },
   "license": "MIT",
   "engines": {
@@ -33,7 +33,8 @@
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
     "travis-deploy-once": "travis-deploy-once",
-    "publish": "sh release.sh"
+    "prepub": "npm run test:prod && npm run build",
+    "pub": "sh release.sh"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
