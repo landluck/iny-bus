@@ -12,7 +12,7 @@
   "author": "landluck <landl_ww@163.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:landluck/iny-bus"
+    "url": "https://github.com/landluck/iny-bus"
   },
   "license": "MIT",
   "engines": {
