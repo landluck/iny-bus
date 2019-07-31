@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/iny-bus.umd.js",
+  "main": "dist/iny-bus.js",
   "module": "dist/iny-bus.es5.js",
-  "unpkg": "dist/iny-bus.umd.js",
-  "jsdelivr": "dist/iny-bus.umd.js",
+  "unpkg": "dist/iny-bus.js",
+  "jsdelivr": "dist/iny-bus.js",
   "typings": "dist/types/iny-bus.d.ts",
   "files": [
     "dist"
