@@ -8,12 +8,18 @@ import json from 'rollup-plugin-json'
 const pkg = require('./package.json')
 
 const libraryName = 'inyBus'
+const banner =
+  '/*!\n' +
+  ` * iny-bus.js v${pkg.version}\n` +
+  ` * (c) 2019-${new Date().getFullYear()} landluck\n` +
+  ' * Released under the MIT License.\n' +
+  ' */'
 
 export default {
   input: `src/index.ts`,
   output: [
-    { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
-    { file: pkg.module, format: 'es', sourcemap: true },
+    { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true, banner },
+    { file: pkg.module, format: 'es', sourcemap: true, banner},
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: [],

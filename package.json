@@ -27,7 +27,7 @@
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
     "deploy-docs": "typedoc --out docs --target es6 --theme minimal --mode file src && ts-node tools/gh-pages-publish",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "report-coverage": "codecov ./coverage/clover.xml",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
