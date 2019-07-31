@@ -1,0 +1,5 @@
+<!--logs.wxml-->
+<view class="container">
+  <input class='input' bindinput='onInput' type='text' placeholder='请输入消息'></input>
+  <button class='btn' bindtap="submit">发送</button>
+</view>
