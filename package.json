@@ -5,6 +5,8 @@
   "keywords": [],
   "main": "dist/iny-bus.umd.js",
   "module": "dist/iny-bus.es5.js",
+  "unpkg": "dist/iny-bus.umd.js",
+  "jsdelivr": "dist/iny-bus.umd.js",
   "typings": "dist/types/iny-bus.d.ts",
   "files": [
     "dist"
