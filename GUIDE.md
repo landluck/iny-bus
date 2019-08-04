@@ -197,7 +197,7 @@
   ```
 
 
-  * 基本的类型是定义完了，我们来写具体实现的代码
+  * 基本的类型是定义完了，我们来写具体实现的代码，第一步，实现 on once 方法
 
   ```typescript
 
@@ -235,30 +235,35 @@
         return this.addEvent(name, EventTypeEnum.ONCE_EVENT, execute)
       }
 
+    }
+
+
+  ```
+
+  * 实现 addEvent 方法
+
+  ```typescript
+
+    class EventBus {
+
       /**
-      * 添加事件的方法
+       * 添加事件的方法
       * @param name
       * @param execute
       */
 
       private addEvent(name: string, eventType: EventType, execute: Function): string {
-
-        // 每个事件都需要一个 ID， 这里统一创建 id
         const eventId = createUid()
 
         const events = this.events
 
-        // 寻找是否已经存在 该 事件
         const event = this.find(name)
 
         if (event !== null) {
-          // 存在，添加 执行者
           event.executes.push({ id: eventId, eventType, execute })
-          // 返回 id， 退出
+
           return eventId
         }
-
-        // 不存在，添加事件，同时添加第一个执行者
 
         events.push({
           name,
@@ -270,49 +275,99 @@
             }
           ]
         })
-        // 返回 id
+
         return eventId
       }
 
+    }
+
+  ```
+
+  * 实现 find 方法
+
+  ```typescript
+  
+    class EventBus {
       /**
        * 查找事件的方法
       * @param name
       */
 
       find(name: string): Event | null {
-
         const events = this.events
-        // 循环遍历事件
-        for (let i = 0; i < events.length; i++) {
 
+        for (let i = 0; i < events.length; i++) {
           if (name === events[i].name) {
-            // 找到 退出 循环，返回事件
             return events[i]
           }
         }
-        // 没有找到，返回 null
+
         return null
       }
+    }
 
+  ```
+
+  * 实现 remove 方法
+
+  ```typescript
+  
+    class EventBus {
+      /**
+       * remove 移除事件监听
+      * @param name 事件名
+      * @param eventId 移除单个事件监听需传入
+      * @returns { EventBus } EventBus EventBus 实例
+      */
+
+      remove(name: string, eventId: string): EventBus {
+        const events = this.events
+
+        for (let i = 0; i < events.length; i++) {
+          if (events[i].name === name) {
+            // 移除具体的操作函数
+            if (eventId && events[i].executes.length > 0) {
+              const eventIndex = events[i].executes.findIndex(item => item.id === eventId)
+
+              if (eventIndex !== -1) {
+                events[i].executes.splice(eventIndex, 1)
+              }
+            } else {
+              events.splice(i, 1)
+            }
+
+            return this
+          }
+        }
+
+        return this
+      }
+    }
+
+  ```
+
+   * 实现 emit 方法
+
+  ```typescript
+  
+    class EventBus {
       /**
        * emit 派发事件
       * @param name 事件名
       * @param args 其余参数
       * @returns { EventBus } EventBus EventBus 实例
       */
-      emit(name: string, ...args: any[]): EventBus {
 
+      emit(name: string, ...args: any[]): EventBus {
         const events = this.events
 
         for (let i = 0; i < events.length; i++) {
-          // 通过 name 找到 该事件
           if (name === events[i].name) {
-
             const funcs = events[i].executes
 
             funcs.forEach((item, i) => {
               item.execute(...args)
-              // 如果是一次性事件，执行完，删除该执行者
+
               if (item.eventType === EventTypeEnum.ONCE_EVENT) {
                 funcs.splice(i, 1)
               }
@@ -324,46 +379,7 @@
 
         return this
       }
-
-
-      /**
-         * remove 移除事件监听
-        * @param name 事件名
-        * @param eventId 移除单个事件监听需传入
-        * @returns { EventBus } EventBus EventBus 实例
-        */
-
-        remove(name: string, eventId: string): EventBus {
-        
-          const events = this.events
-
-          for (let i = 0; i < events.length; i++) {
-
-            if (events[i].name === name) {
-
-              // 移除具体的执行者
-              if (eventId && events[i].executes.length > 0) {
-
-                const eventIndex = events[i].executes.findIndex(item => item.id === eventId)
-
-                if (eventIndex !== -1) {
-        
-                  events[i].executes.splice(eventIndex, 1)
-                }
-                
-              } else {
-                // 移除整个事件
-                events.splice(i, 1)
-              }
-
-              return this
-            }
-          }
-          
-          return this
-        }
     }
-
 
   ```
 
