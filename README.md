@@ -41,6 +41,7 @@
 * 100% 测试用例覆盖
 * 兼容各大平台小程序
 * 支持 TS
+* [文档地址](https://landluck.github.io/iny-bus/docs)
 
 ## 安装
 
