@@ -1,5 +1,5 @@
 /*!
- * iny-bus.js v1.0.1
+ * iny-bus.js v1.0.2
  * (c) 2019-2019 landluck
  * Released under the MIT License.
  */

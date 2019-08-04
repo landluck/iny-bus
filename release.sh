@@ -8,18 +8,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo "beigin Releasing $VERSION ..."
 
-  # commit
-  {
-    git add -A
-    git commit -m "[build] $VERSION"
-    npm version $VERSION --message "[release] $VERSION"
-    git push origin master
+  git add -A
+  git commit -m "[build] $VERSION"
+  npm version $VERSION --message "[release] $VERSION"
+  git push origin master
 
-    # publish
-    npm publish
-
-  }  ||  {
-    # publish
-    npm publish
-  }
+  # publish
+  npm publish
 fi
