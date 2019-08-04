@@ -29,15 +29,15 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
-    "deploy-docs": "typedoc --out docs --target es6 --theme minimal --mode file src && ts-node tools/gh-pages-publish",
+    "docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
     "report-coverage": "codecov ./coverage/clover.xml",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged",
-    "travis-deploy-once": "travis-deploy-once",
     "prepub": "npm run test:prod && npm run build",
-    "pub": "sh release.sh"
+    "pub": "sh release.sh",
+    "pub_docs": "sh release-docs.sh"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
