@@ -11,6 +11,10 @@
     <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/dist/iny-bus.js?compression=gzip&style=flat-square&label=JSgzip%20size" alt="JS Gzip Size" />
 </p>
 
+<p align='center'>如果对你有帮助或者有任何收获、点个 赞，给个星星，鼓励一下作者😄<p>
+
+
+
 ## 介绍
 
   在各种小程序中，我们经常会遇到 这种情况
