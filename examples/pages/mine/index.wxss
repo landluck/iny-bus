@@ -1,7 +1,0 @@
-.input {
-  border: 1px solid #ddd;
-  padding: 20px;
-}
-.btn {
-  margin-top: 30px;
-}
