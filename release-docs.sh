@@ -10,5 +10,5 @@ then
  
   npm run docs
 
-  gh-pages -d docs --add
+  npm run deploy-docs
 fi
