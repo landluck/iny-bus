@@ -948,42 +948,44 @@ img { max-width: 100%; }
 				<img src="https://travis-ci.org/landluck/iny-bus.svg?branch=master" alt="Build Status" />
 				<img src="https://img.shields.io/npm/dt/iny-bus.svg?style=flat-square" alt="downloads" />
 				<img src="https://img.shields.io/npm/dm/iny-bus.svg?style=flat-square" alt="downloads" />
-				<img src="https://img.badgesize.io/https://unpkg.com/iny-bus/lib/iny-bus.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
+				<img src="https://img.badgesize.io/https://unpkg.com/iny-bus/dist/iny-bus.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
 			</p>
-			<h2 id="-">介绍</h2>
-			<p>  在各种小程序中，我们经常会遇到 这种情况</p>
-			<p>  有一个 列表，点击列表中的一项进入详情，详情有个按钮，删除了这一项，这个时候当用户返回到列表页时，发现列表中的这一项依然存在，
-			这种情况，就是一个 <code>bug</code></p>
-			<p>  那我们怎么解决这个问题呢</p>
-			<p>  有的人会将所有请求放到 生命周期 <code>onShow</code> 中，只要我们页面显示，就会重新请求，诚然，这也是解决问题的一个办法</p>
-			<p>  但是，所有请求放置于 <code>onShow</code> 中，就会造成服务器压力，多余的请求，用户体验不好的问题</p>
-			<p>  那么，有别的解决办法吗</p>
-			<p>  有，有的同学说，我可以用 <code>getCurrentPages</code> 获取页面栈，然后找到对应的 页面实例，调用实例方法，去刷新数据</p>
-			<p>  这也是解决问题的一个办法，然而，当你需要刷新两个页面呢，三个页面呢，是不是要处理很多</p>
-			<p>  <code>iny-bus</code> 就是一个非常好的解决方法，请求放置于 <code>onLoad，数据随时随地刷新，便于控制，代码量极小，经过业务考验</code></p>
-			<p>  只要是能运行 <code>js</code> 的地方，<code>iny-bus</code> 就支持</p>
-			<h2 id="-">功能</h2>
-			<ul>
-				<li>100% 测试用例覆盖</li>
-				<li>兼容各大平台小程序</li>
-				<li>支持 TS</li>
-			</ul>
-			<h2 id="-">安装</h2>
-			<h3 id="-npm-">方式一. 通过 npm 安装</h3>
-			<p>小程序已经支持使用 npm 安装第三方包，详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html?search-key=npm">npm 支持</a></p>
-			<pre><code class="language-bash"><span class="hljs-comment"># npm</span>
+			<p align='center'>如果对你有帮助或者有任何收获、点个 赞，给个星星，鼓励一下作者😄<p>
+					<h2 id="-">介绍</h2>
+					<p>  在各种小程序中，我们经常会遇到 这种情况</p>
+					<p>  有一个 列表，点击列表中的一项进入详情，详情有个按钮，删除了这一项，这个时候当用户返回到列表页时，发现列表中的这一项依然存在，
+					这种情况，就是一个 <code>bug</code></p>
+					<p>  那我们怎么解决这个问题呢</p>
+					<p>  有的人会将所有请求放到 生命周期 <code>onShow</code> 中，只要我们页面显示，就会重新请求，诚然，这也是解决问题的一个办法</p>
+					<p>  但是，所有请求放置于 <code>onShow</code> 中，就会造成服务器压力，多余的请求，用户体验不好的问题</p>
+					<p>  那么，有别的解决办法吗</p>
+					<p>  有，有的同学说，我可以用 <code>getCurrentPages</code> 获取页面栈，然后找到对应的 页面实例，调用实例方法，去刷新数据</p>
+					<p>  这也是解决问题的一个办法，然而，当你需要刷新两个页面呢，三个页面呢，是不是要处理很多</p>
+					<p>  <code>iny-bus</code> 就是一个非常好的解决方法，请求放置于 <code>onLoad，数据随时随地刷新，便于控制，代码量极小，经过业务考验</code></p>
+					<p>  只要是能运行 <code>js</code> 的地方，<code>iny-bus</code> 就支持</p>
+					<h2 id="-">功能</h2>
+					<ul>
+						<li>100% 测试用例覆盖</li>
+						<li>兼容各大平台小程序</li>
+						<li>支持 TS</li>
+						<li><a href="https://landluck.github.io/iny-bus/docs">文档地址</a></li>
+					</ul>
+					<h2 id="-">安装</h2>
+					<h3 id="-npm-">方式一. 通过 npm 安装</h3>
+					<p>小程序已经支持使用 npm 安装第三方包，详见 <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html?search-key=npm">npm 支持</a></p>
+					<pre><code class="language-bash"><span class="hljs-comment"># npm</span>
 npm i iny-bus -save
 
 <span class="hljs-comment"># yarn</span>
 yarn add iny-bus --production</code></pre>
-			<h3 id="-">方式二. 下载代码</h3>
-			<p>直接通过 git 下载 iny-bus 源代码，并将<code>dist</code>目录 中的 iny-bus.js 拷贝到自己的项目中</p>
-			<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/landluck/iny-bus.git</code></pre>
-			<h2 id="-">基本使用方法</h2>
-			<ol>
-				<li>在小程序中使用</li>
-			</ol>
-			<pre><code class="language-javascript">
+					<h3 id="-">方式二. 下载代码</h3>
+					<p>直接通过 git 下载 iny-bus 源代码，并将<code>dist</code>目录 中的 iny-bus.js 拷贝到自己的项目中</p>
+					<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/landluck/iny-bus.git</code></pre>
+					<h2 id="-">基本使用方法</h2>
+					<ol>
+						<li>在小程序中使用</li>
+					</ol>
+					<pre><code class="language-javascript">
   <span class="hljs-comment">// 小程序</span>
   <span class="hljs-keyword">import</span> bus <span class="hljs-keyword">from</span> <span class="hljs-string">'iny-bus'</span>
 
@@ -1013,16 +1015,16 @@ yarn add iny-bus --production</code></pre>
     bus.emit(<span class="hljs-string">'事件名'</span>, a, b, c)
   }
 </code></pre>
-			<ol start="2">
-				<li><p>是否可以在 <code>Vue</code> 中使用呢</p>
-					<p> 可以，当 <code>Vue</code> 的项目使用 <code>keep-alive</code> 后，页面数据会被缓存，生命周期函数不会执行，虽然有 <code>activited</code> 生命周期供我们使用，但是它每次都会执行，我们只需要想让它刷新的时候刷新, 是可以使用的，当让，<code>Vue</code> 中也有解决方案，比如说，<code>Vuex</code>，<code>event bus</code> 事件总线，总的来说，用在各大平台的原生小程序更为合适</p>
-				</li>
-				<li><p>有没有必要在 <code>taro</code> 、<code>uni-app</code> 中使用呢</p>
-					<p> 没必要，因为各大跨段框架内部都实现了事件机制，大家可以使用框架内部提供的，我们这里只建议在 原生小程序中使用</p>
-				</li>
-			</ol>
-			<h2 id="license">LICENSE</h2>
-			<p><a href="https://en.wikipedia.org/wiki/MIT_License">MIT</a></p>
+					<ol start="2">
+						<li><p>是否可以在 <code>Vue</code> 中使用呢</p>
+							<p> 可以，当 <code>Vue</code> 的项目使用 <code>keep-alive</code> 后，页面数据会被缓存，生命周期函数不会执行，虽然有 <code>activited</code> 生命周期供我们使用，但是它每次都会执行，我们只需要想让它刷新的时候刷新, 是可以使用的，当让，<code>Vue</code> 中也有解决方案，比如说，<code>Vuex</code>，<code>event bus</code> 事件总线，总的来说，用在各大平台的原生小程序更为合适</p>
+						</li>
+						<li><p>有没有必要在 <code>taro</code> 、<code>uni-app</code> 中使用呢</p>
+							<p> 没必要，因为各大跨段框架内部都实现了事件机制，大家可以使用框架内部提供的，我们这里只建议在 原生小程序中使用</p>
+						</li>
+					</ol>
+					<h2 id="license">LICENSE</h2>
+					<p><a href="https://en.wikipedia.org/wiki/MIT_License">MIT</a></p>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -1079,7 +1081,7 @@ yarn add iny-bus --production</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Event<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/5d3e07b/src/types/index.ts#L19">types/index.ts:19</a></li>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/b56bf8f/src/types/index.ts#L19">types/index.ts:19</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1092,7 +1094,7 @@ yarn add iny-bus --production</code></pre>
 				<div class="tsd-signature tsd-kind-icon">bus<span class="tsd-signature-symbol">:</span> <a href="interfaces/eventbusinstance.html" class="tsd-signature-type">EventBusInstance</a><span class="tsd-signature-symbol"> =&nbsp;createInstance()</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/5d3e07b/src/bus.ts#L11">bus.ts:11</a></li>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/b56bf8f/src/bus.ts#L11">bus.ts:11</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1109,7 +1111,7 @@ yarn add iny-bus --production</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/5d3e07b/src/bus.ts#L5">bus.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/b56bf8f/src/bus.ts#L5">bus.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="interfaces/eventbusinstance.html" class="tsd-signature-type">EventBusInstance</a></h4>
@@ -1126,7 +1128,7 @@ yarn add iny-bus --production</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/5d3e07b/src/utils.ts#L5">utils.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/b56bf8f/src/utils.ts#L5">utils.ts:5</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

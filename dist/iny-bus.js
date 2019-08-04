@@ -1,5 +1,5 @@
 /*!
- * iny-bus.js v1.0.2
+ * iny-bus.js v1.0.4
  * (c) 2019-2019 landluck
  * Released under the MIT License.
  */
@@ -49,7 +49,7 @@ var EventBus = /** @class */ (function () {
      * remove 移除事件监听
      * @param name 事件名
      * @param eventId 移除单个事件监听需传入
-     * @returns { WxEventCenter } WxEventCenter WxEventCenter 实例
+     * @returns { EventBus } EventBus EventBus 实例
      */
     EventBus.prototype.remove = function (name, eventId) {
         var events = this.events;
@@ -74,7 +74,7 @@ var EventBus = /** @class */ (function () {
      * emit 派发事件
      * @param name 事件名
      * @param args 其余参数
-     * @returns { WxEventCenter } WxEventCenter WxEventCenter 实例
+     * @returns { EventBus } EventBus EventBus 实例
      */
     EventBus.prototype.emit = function (name) {
         var args = [];

@@ -22,14 +22,14 @@ declare class EventBus {
      * remove 移除事件监听
      * @param name 事件名
      * @param eventId 移除单个事件监听需传入
-     * @returns { WxEventCenter } WxEventCenter WxEventCenter 实例
+     * @returns { EventBus } EventBus EventBus 实例
      */
     remove(name: string, eventId: string): EventBus;
     /**
      * emit 派发事件
      * @param name 事件名
      * @param args 其余参数
-     * @returns { WxEventCenter } WxEventCenter WxEventCenter 实例
+     * @returns { EventBus } EventBus EventBus 实例
      */
     emit(name: string, ...args: any[]): EventBus;
     /**
