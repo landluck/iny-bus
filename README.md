@@ -63,7 +63,7 @@ yarn add iny-bus --production
 
 ### 方式二. 下载代码
 
-直接通过 git 下载 iny-bus 源代码，并将`dist`目录 中的 iny-bus.js 拷贝到自己的项目中
+直接通过 git 下载 iny-bus 源代码，并将`dist`目录 中的 index.js 拷贝到自己的项目中
 
 ```bash
 git clone https://github.com/landluck/iny-bus.git
