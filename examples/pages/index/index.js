@@ -1,5 +1,5 @@
 //index.js
-import bus from '../../plugins/iny-bus.js'
+import bus from '../../plugins/iny-bus/index.js'
 //获取应用实例
 const app = getApp()
 
