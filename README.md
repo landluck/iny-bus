@@ -8,7 +8,7 @@
     <img src="https://travis-ci.org/landluck/iny-bus.svg?branch=master" alt="Build Status" />
     <img src="https://img.shields.io/npm/dt/iny-bus.svg?style=flat-square" alt="downloads" />
     <img src="https://img.shields.io/npm/dm/iny-bus.svg?style=flat-square" alt="downloads" />
-    <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/dist/iny-bus.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
+    <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/dist/index.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
 </p>
 
 <p align='center'>如果对你有帮助或者有任何收获、点个 赞，给个星星，鼓励一下作者😄<p>
