@@ -9,6 +9,8 @@ export interface EventBus {
 
   find(name: string): Event | null
 
+  clear(): EventBus
+
   [propName: string]: any
 }
 

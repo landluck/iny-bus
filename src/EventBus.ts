@@ -74,13 +74,15 @@ class EventBus {
       if (name === events[i].name) {
         const funcs = events[i].executes
 
-        funcs.forEach((item, i) => {
+        for (let z = 0; z < funcs.length; z++) {
+          const item = funcs[z]
+
           item.execute(...args)
 
           if (item.eventType === EventTypeEnum.ONCE_EVENT) {
-            funcs.splice(i, 1)
+            funcs.splice(z, 1)
           }
-        })
+        }
 
         return this
       }
@@ -104,6 +106,12 @@ class EventBus {
     }
 
     return null
+  }
+
+  clear(): EventBus {
+    this.events.length = 0
+
+    return this
   }
 
   /**
