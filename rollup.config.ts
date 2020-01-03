@@ -20,7 +20,7 @@ export default {
   output: [
     { file: pkg.main, name: camelCase(libraryName), format: 'cjs', sourcemap: false, banner }
   ],
-  // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
+  // Indicate here external modules you don't wanna include in your bundle (i.e.: 'loda·sh')
   external: [],
   watch: {
     include: 'src/**',

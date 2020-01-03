@@ -8,7 +8,7 @@
     <img src="https://travis-ci.org/landluck/iny-bus.svg?branch=master" alt="Build Status" />
     <img src="https://img.shields.io/npm/dt/iny-bus.svg?style=flat-square" alt="downloads" />
     <img src="https://img.shields.io/npm/dm/iny-bus.svg?style=flat-square" alt="downloads" />
-    <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/dist/iny-bus.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
+    <img src="https://img.badgesize.io/https://unpkg.com/iny-bus/dist/index.js?compression=gzip&style=flat-square&label=JS%20gzip%20size" alt="JS Gzip Size" />
 </p>
 
 <p align='center'>如果对你有帮助或者有任何收获、点个 赞，给个星星，鼓励一下作者😄<p>
@@ -63,7 +63,7 @@ yarn add iny-bus --production
 
 ### 方式二. 下载代码
 
-直接通过 git 下载 iny-bus 源代码，并将`dist`目录 中的 iny-bus.js 拷贝到自己的项目中
+直接通过 git 下载 iny-bus 源代码，并将`dist`目录 中的 index.js 拷贝到自己的项目中
 
 ```bash
 git clone https://github.com/landluck/iny-bus.git

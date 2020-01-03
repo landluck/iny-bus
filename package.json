@@ -1,14 +1,14 @@
 {
   "name": "iny-bus",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "keywords": [],
-  "main": "dist/iny-bus.js",
-  "module": "dist/iny-bus.js",
-  "unpkg": "dist/iny-bus.js",
-  "jsdelivr": "dist/iny-bus.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
   "miniprogram": "dist",
-  "typings": "dist/types/iny-bus.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
