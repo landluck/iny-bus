@@ -81,6 +81,7 @@ class EventBus {
 
           if (item.eventType === EventTypeEnum.ONCE_EVENT) {
             funcs.splice(z, 1)
+            z--
           }
         }
 
