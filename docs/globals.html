@@ -1014,6 +1014,11 @@ yarn add iny-bus --production</code></pre>
   onClick () {
     bus.emit(<span class="hljs-string">'事件名'</span>, a, b, c)
   }
+
+  <span class="hljs-comment">// 清空所有事件监听</span>
+  onClear () {
+    bus.clear()
+  }
 </code></pre>
 					<ol start="2">
 						<li><p>是否可以在 <code>Vue</code> 中使用呢</p>
@@ -1080,7 +1085,7 @@ yarn add iny-bus --production</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Event<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/51916c5/src/types/index.ts#L21">types/index.ts:21</a></li>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/36b8d63/src/types/index.ts#L21">types/index.ts:21</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1093,7 +1098,7 @@ yarn add iny-bus --production</code></pre>
 				<div class="tsd-signature tsd-kind-icon">bus<span class="tsd-signature-symbol">:</span> <a href="interfaces/eventbusinstance.html" class="tsd-signature-type">EventBusInstance</a><span class="tsd-signature-symbol"> =&nbsp;createInstance()</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/51916c5/src/bus.ts#L11">bus.ts:11</a></li>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/36b8d63/src/bus.ts#L11">bus.ts:11</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1110,7 +1115,7 @@ yarn add iny-bus --production</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/51916c5/src/bus.ts#L5">bus.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/36b8d63/src/bus.ts#L5">bus.ts:5</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="interfaces/eventbusinstance.html" class="tsd-signature-type">EventBusInstance</a></h4>
@@ -1127,7 +1132,7 @@ yarn add iny-bus --production</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/51916c5/src/utils.ts#L5">utils.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/36b8d63/src/utils.ts#L5">utils.ts:5</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">

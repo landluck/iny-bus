@@ -6,9 +6,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo "beigin Releasing docs"
 
-  rm -rf docs/dist
+  rm -rf docs
  
   npm run docs
 
-  npm run deploy-docs
+  gh-pages-clean
+
+  gh-pages -d docs --add --git /usr/bin/git
 fi
