@@ -103,6 +103,11 @@ git clone https://github.com/landluck/iny-bus.git
   onClick () {
     bus.emit('事件名', a, b, c)
   }
+  
+  // 清空所有事件监听
+  onClear () {
+    bus.clear()
+  }
  
 ```
 
