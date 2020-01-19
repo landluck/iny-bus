@@ -37,6 +37,7 @@ declare class EventBus {
      * @param name
      */
     find(name: string): Event | null;
+    clear(): EventBus;
     /**
      * 添加事件的方法
      * @param name

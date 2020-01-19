@@ -1,6 +1,6 @@
 /*!
- * iny-bus.js v1.0.6
- * (c) 2019-2019 landluck
+ * iny-bus.js v1.0.7
+ * (c) 2019-2020 landluck
  * Released under the MIT License.
  */
 'use strict';
@@ -82,23 +82,18 @@ var EventBus = /** @class */ (function () {
             args[_i - 1] = arguments[_i];
         }
         var events = this.events;
-        var _loop_1 = function (i) {
+        for (var i = 0; i < events.length; i++) {
             if (name === events[i].name) {
-                var funcs_1 = events[i].executes;
-                funcs_1.forEach(function (item, i) {
+                var funcs = events[i].executes;
+                for (var z = 0; z < funcs.length; z++) {
+                    var item = funcs[z];
                     item.execute.apply(item, args);
                     if (item.eventType === EventTypeEnum.ONCE_EVENT) {
-                        funcs_1.splice(i, 1);
+                        funcs.splice(z, 1);
                     }
-                });
-                return { value: this_1 };
+                }
+                return this;
             }
-        };
-        var this_1 = this;
-        for (var i = 0; i < events.length; i++) {
-            var state_1 = _loop_1(i);
-            if (typeof state_1 === "object")
-                return state_1.value;
         }
         return this;
     };
@@ -114,6 +109,10 @@ var EventBus = /** @class */ (function () {
             }
         }
         return null;
+    };
+    EventBus.prototype.clear = function () {
+        this.events.length = 0;
+        return this;
     };
     /**
      * 添加事件的方法

@@ -4,6 +4,7 @@ export interface EventBus {
     remove(name: string, eventId?: string): EventBus;
     emit(name: string, ...args: any[]): EventBus;
     find(name: string): Event | null;
+    clear(): EventBus;
     [propName: string]: any;
 }
 export interface EventBusInstance extends EventBus {
