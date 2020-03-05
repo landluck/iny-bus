@@ -1,3 +1,7 @@
+export interface PlainObject {
+  [prop: string]: any
+}
+
 export interface EventBus {
   on(name: string, execute: Function): string
 
@@ -27,6 +31,25 @@ export interface Event {
 
 export interface Execute {
   id: string
-  eventType: EventType
   execute: Function
+}
+
+export interface InyEvent {
+  handler: (...args: any[]) => any
+  once: boolean
+}
+
+export interface InyEvents {
+  [prop: string]: ((...args: any[]) => any) | InyEvent
+}
+
+export interface InyEventIdNames {
+  id: string
+  name: string
+}
+
+export interface Context {
+  inyEvents?: InyEvents
+  __inyEventIds?: InyEventIdNames[]
+  [prop: string]: any
 }

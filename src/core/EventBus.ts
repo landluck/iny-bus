@@ -1,6 +1,5 @@
-import { Event, EventType } from './types'
-import { EventTypeEnum } from './enum'
-import { createUid } from './utils'
+import { Event, EventType } from '../types'
+import { createUid, once } from '../utils'
 
 class EventBus {
   /**
@@ -16,7 +15,7 @@ class EventBus {
    */
 
   on(name: string, execute: Function): string {
-    return this.addEvent(name, EventTypeEnum.NORMAL_EVENT, execute)
+    return this.addEvent(name, execute)
   }
 
   /**
@@ -27,7 +26,7 @@ class EventBus {
    */
 
   once(name: string, execute: Function): string {
-    return this.addEvent(name, EventTypeEnum.ONCE_EVENT, execute)
+    return this.addEvent(name, once(execute))
   }
 
   /**
@@ -78,10 +77,6 @@ class EventBus {
           const item = funcs[z]
 
           item.execute(...args)
-
-          if (item.eventType === EventTypeEnum.ONCE_EVENT) {
-            funcs.splice(z, 1)
-          }
         }
 
         return this
@@ -120,7 +115,7 @@ class EventBus {
    * @param execute
    */
 
-  private addEvent(name: string, eventType: EventType, execute: Function): string {
+  private addEvent(name: string, execute: Function): string {
     const eventId = createUid()
 
     const events = this.events
@@ -128,7 +123,7 @@ class EventBus {
     const event = this.find(name)
 
     if (event !== null) {
-      event.executes.push({ id: eventId, eventType, execute })
+      event.executes.push({ id: eventId, execute })
 
       return eventId
     }
@@ -138,7 +133,6 @@ class EventBus {
       executes: [
         {
           id: eventId,
-          eventType,
           execute
         }
       ]
