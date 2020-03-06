@@ -30,6 +30,7 @@ export function onUnload(ctx: Context, onUnload: string): void {
 
   ctx[onUnload] = function(): void {
     ctx.__inyEventIds!.forEach(event => bus.remove(event.name, event.id))
+    ctx.__inyEventIds = undefined
 
     func && func.call(ctx)
   }
@@ -41,7 +42,7 @@ export function addEvent(events: InyEvents, ctx: Context): InyEventIdNames[] {
       const event = events[name]
 
       if (typeof event === 'function') {
-        return { id: bus.on(name, event.bind(ctx)), name }
+        return { id: bus.on(name, event), name }
       }
 
       if (typeof event.handler !== 'function') {
@@ -49,10 +50,10 @@ export function addEvent(events: InyEvents, ctx: Context): InyEventIdNames[] {
       }
 
       if (event.once) {
-        return { id: bus.once(name, event.handler.bind(ctx)), name }
+        return { id: bus.once(name, event.handler), name }
       }
 
-      return { id: bus.on(name, event.handler.bind(ctx)), name }
+      return { id: bus.on(name, event.handler), name }
     })
     .filter(item => !!item.id)
 }

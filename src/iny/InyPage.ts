@@ -1,8 +1,8 @@
-import { Context } from '../types/index'
+import { Context, InyPage } from '../types/index'
 import { PAGE_LIFE_TIMES } from './../config'
 import { onLoad, verifyEvents, onUnload } from './base'
 
-function InyPage<T extends Context>(ctx: T): T {
+function InyPage<T extends Context>(ctx: T): InyPage<T> {
   const { inyEvents } = ctx
 
   if (!verifyEvents(inyEvents)) {

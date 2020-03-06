@@ -1,4 +1,4 @@
-import { Event, EventType } from '../types'
+import { Event } from '../types'
 import { createUid, once } from '../utils'
 
 class EventBus {
@@ -39,21 +39,22 @@ class EventBus {
   remove(name: string, eventId: string): EventBus {
     const events = this.events
 
-    for (let i = 0; i < events.length; i++) {
-      if (events[i].name === name) {
-        // 移除具体的操作函数
-        if (eventId && events[i].executes.length > 0) {
-          const eventIndex = events[i].executes.findIndex(item => item.id === eventId)
+    const index = events.findIndex(event => event.name === name)
 
-          if (eventIndex !== -1) {
-            events[i].executes.splice(eventIndex, 1)
-          }
-        } else {
-          events.splice(i, 1)
-        }
+    if (index === -1) {
+      return this
+    }
 
-        return this
-      }
+    if (!eventId) {
+      events.splice(index, 1)
+
+      return this
+    }
+
+    const executeIndex = events[index].executes.findIndex(item => item.id === eventId)
+
+    if (executeIndex !== -1) {
+      events[index].executes.splice(executeIndex, 1)
     }
 
     return this
@@ -67,21 +68,16 @@ class EventBus {
    */
 
   emit(name: string, ...args: any[]): EventBus {
-    const events = this.events
+    const event = this.find(name)
 
-    for (let i = 0; i < events.length; i++) {
-      if (name === events[i].name) {
-        const funcs = events[i].executes
-
-        for (let z = 0; z < funcs.length; z++) {
-          const item = funcs[z]
-
-          item.execute(...args)
-        }
-
-        return this
-      }
+    if (!event) {
+      return this
     }
+    const funcs = event.executes
+
+    funcs.forEach(func => {
+      func.execute(...args)
+    })
 
     return this
   }

@@ -1,8 +1,8 @@
 import { COMPONENT_LIFE_TIMES } from './../config'
-import { Context } from '../types/index'
+import { Context, InyComponent } from '../types/index'
 import { onLoad, verifyEvents, onUnload } from './base'
 
-function InyComponents<T extends Context>(ctx: T): T {
+function InyComponents<T extends Context>(ctx: T): InyComponent<T> {
   const { inyEvents } = ctx
 
   if (!verifyEvents(inyEvents)) {

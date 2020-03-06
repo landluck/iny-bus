@@ -1,5 +1,5 @@
 import EventBus from '../src/index'
-import EventBusStatic from '../src/EventBus'
+import EventBusStatic from '../src/core/EventBus'
 
 describe('bus', () => {
   test('should return eventId', () => {
@@ -81,8 +81,8 @@ describe('bus', () => {
 
     EventBus.emit('testRemoveById')
 
-    expect(fn1).not.toHaveBeenCalled()
-    expect(fn2).toHaveBeenCalled()
+    expect(fn1).not.toBeCalled()
+    expect(fn2).toBeCalled()
   })
 
   test('should called count of normal', () => {

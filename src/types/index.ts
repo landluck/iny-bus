@@ -22,8 +22,6 @@ export interface EventBusInstance extends EventBus {
   create(): EventBus
 }
 
-export type EventType = 1 | 2
-
 export interface Event {
   name: string
   executes: Execute[]
@@ -53,3 +51,9 @@ export interface Context {
   __inyEventIds?: InyEventIdNames[]
   [prop: string]: any
 }
+
+export type InyApp<T> = Partial<T> & Context
+
+export type InyPage<T> = Partial<T> & Context
+
+export type InyComponent<T> = Partial<T> & Context
