@@ -11,15 +11,12 @@ describe('inyApp', () => {
     const app2 = inyApp<PlainObject>({
       busEvents: {
         refreshApp: () => {},
-        refreshAppError: 'xxx'
       }
     })
 
     app2.onLaunch({})
 
     expect(app2.__inyEventIds).not.toBe(undefined)
-    const event2 = bus.find('refreshAppError')
-    expect(event2).toBe(null)
     const event = bus.find('refreshApp')
     if (event) {
       expect(event).not.toBe(null)
