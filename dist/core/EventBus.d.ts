@@ -1,4 +1,4 @@
-import { Event } from './types';
+import { Event } from '../types';
 declare class EventBus {
     /**
      * 储存事件的容器
@@ -8,16 +8,18 @@ declare class EventBus {
      * on 新增事件监听
      * @param name 事件名
      * @param execute 回调函数
+     * @param ctx 上下文 this
      * @returns { string } eventId 事件ID，用户取消该事件监听
      */
-    on(name: string, execute: Function): string;
+    on(name: string, execute: Function, ctx?: any): string;
     /**
      * one 只允许添加一次事件监听
      * @param name 事件名
      * @param execute 回调函数
+     * @param ctx 上下文 this
      * @returns { string } eventId 事件ID，用户取消该事件监听
      */
-    once(name: string, execute: Function): string;
+    once(name: string, execute: Function, ctx?: any): string;
     /**
      * remove 移除事件监听
      * @param name 事件名

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index2/index",
     "pages/logs/logs",
     "pages/mine/index"
   ],
@@ -15,6 +16,10 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/index2/index",
+        "text": "简化"
       },
       {
         "pagePath": "pages/logs/logs",

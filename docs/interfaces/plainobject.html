@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EventTypeEnum | iny-bus</title>
+	<title>PlainObject | iny-bus</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -909,34 +909,53 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class="current tsd-kind-enum">
-			<a href="eventtypeenum.html" class="tsd-kind-icon">Event<wbr>Type<wbr>Enum</a>
-			<ul>
-				<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-					<a href="eventtypeenum.html#normal_event" class="tsd-kind-icon">NORMAL_<wbr>EVENT</a>
-				</li>
-				<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-					<a href="eventtypeenum.html#once_event" class="tsd-kind-icon">ONCE_<wbr>EVENT</a>
-				</li>
-			</ul>
-		</li>
 		<li class=" tsd-kind-class">
 			<a href="../classes/eventbus.html" class="tsd-kind-icon">Event<wbr>Bus</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="../interfaces/event.html" class="tsd-kind-icon">Event</a>
+			<a href="context.html" class="tsd-kind-icon">Context</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="../interfaces/eventbusinstance.html" class="tsd-kind-icon">Event<wbr>Bus<wbr>Instance</a>
+			<a href="event.html" class="tsd-kind-icon">Event</a>
 		</li>
 		<li class=" tsd-kind-interface">
-			<a href="../interfaces/execute.html" class="tsd-kind-icon">Execute</a>
+			<a href="eventbusinstance.html" class="tsd-kind-icon">Event<wbr>Bus<wbr>Instance</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a>
+		<li class=" tsd-kind-interface">
+			<a href="execute.html" class="tsd-kind-icon">Execute</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="inyevent.html" class="tsd-kind-icon">Iny<wbr>Event</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="inyeventidnames.html" class="tsd-kind-icon">Iny<wbr>Event<wbr>IdNames</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="busEvents.html" class="tsd-kind-icon">Iny<wbr>Events</a>
+		</li>
+		<li class="current tsd-kind-interface">
+			<a href="plainobject.html" class="tsd-kind-icon">Plain<wbr>Object</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="../globals.html#inyapp" class="tsd-kind-icon">Iny<wbr>App</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="../globals.html#inycomponent" class="tsd-kind-icon">Iny<wbr>Component</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="../globals.html#inypage" class="tsd-kind-icon">Iny<wbr>Page</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="../globals.html#component_life_times" class="tsd-kind-icon">COMPONENT_<wbr>LIFE_<wbr>TIMES</a>
 		</li>
 		<li class=" tsd-kind-variable">
 			<a href="../globals.html#bus" class="tsd-kind-icon">bus</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../globals.html#inycomponents" class="tsd-kind-icon">Iny<wbr>Components</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#addevent" class="tsd-kind-icon">add<wbr>Event</a>
 		</li>
 		<li class=" tsd-kind-function tsd-is-not-exported">
 			<a href="../globals.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a>
@@ -944,46 +963,45 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#createuid" class="tsd-kind-icon">create<wbr>Uid</a>
 		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="../globals.html#inyapp" class="tsd-kind-icon">iny<wbr>App</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#isalipay" class="tsd-kind-icon">is<wbr>Ali<wbr>Pay</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#onload" class="tsd-kind-icon">on<wbr>Load</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#onunload" class="tsd-kind-icon">on<wbr>Unload</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#once" class="tsd-kind-icon">once</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="../globals.html#verifyevents" class="tsd-kind-icon">verify<wbr>Events</a>
+		</li>
+		<li class=" tsd-kind-object-literal">
+			<a href="../globals.html#app_life_times" class="tsd-kind-icon">APP_<wbr>LIFE_<wbr>TIMES</a>
+		</li>
+		<li class=" tsd-kind-object-literal">
+			<a href="../globals.html#page_life_times" class="tsd-kind-icon">PAGE_<wbr>LIFE_<wbr>TIMES</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel-group tsd-index-group">
-			<h2>Index</h2>
-			<section class="tsd-panel tsd-index-panel">
-				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Enumeration members</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="eventtypeenum.html#normal_event" class="tsd-kind-icon">NORMAL_<wbr>EVENT</a></li>
-							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="eventtypeenum.html#once_event" class="tsd-kind-icon">ONCE_<wbr>EVENT</a></li>
-						</ul>
-					</section>
-				</div>
-			</section>
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<span class="target">PlainObject</span>
+				</li>
+			</ul>
 		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Enumeration members</h2>
-			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-				<a name="normal_event" class="tsd-anchor"></a>
-				<h3>NORMAL_<wbr>EVENT</h3>
-				<div class="tsd-signature tsd-kind-icon">NORMAL_<wbr>EVENT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;1</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/36b8d63/src/enum.ts#L3">enum.ts:3</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-				<a name="once_event" class="tsd-anchor"></a>
-				<h3>ONCE_<wbr>EVENT</h3>
-				<div class="tsd-signature tsd-kind-icon">ONCE_<wbr>EVENT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;2</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/36b8d63/src/enum.ts#L5">enum.ts:5</a></li>
-					</ul>
-				</aside>
-			</section>
+		<section class="tsd-panel tsd-kind-interface">
+			<h3 class="tsd-before-signature">Indexable</h3>
+			<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>prop: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 		</section>
 		<footer class="with-border-bottom">
 			<div class="container">

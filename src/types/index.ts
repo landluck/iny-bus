@@ -1,7 +1,11 @@
-export interface EventBus {
-  on(name: string, execute: Function): string
+export interface PlainObject {
+  [prop: string]: any
+}
 
-  once(name: string, execute: Function): string
+export interface EventBus {
+  on(name: string, execute: Function, ctx?: any): string
+
+  once(name: string, execute: Function, ctx?: any): string
 
   remove(name: string, eventId?: string): EventBus
 
@@ -11,14 +15,18 @@ export interface EventBus {
 
   clear(): EventBus
 
+  app<T extends Context>(ctx: T): InyApp<T>
+
+  page<T extends Context>(ctx: T): InyPage<T>
+
+  component<T extends Context>(ctx: T): InyComponent<T>
+
   [propName: string]: any
 }
 
 export interface EventBusInstance extends EventBus {
   create(): EventBus
 }
-
-export type EventType = 1 | 2
 
 export interface Event {
   name: string
@@ -27,6 +35,32 @@ export interface Event {
 
 export interface Execute {
   id: string
-  eventType: EventType
   execute: Function
+  ctx?: any
 }
+
+export interface InyEvent {
+  handler: (...args: any[]) => any
+  once: boolean
+}
+
+export interface busEvents {
+  [prop: string]: ((...args: any[]) => any) | InyEvent
+}
+
+export interface InyEventIdNames {
+  id: string
+  name: string
+}
+
+export interface Context {
+  busEvents?: busEvents
+  __inyEventIds?: InyEventIdNames[]
+  [prop: string]: any
+}
+
+export type InyApp<T> = Partial<T> & Context
+
+export type InyPage<T> = Partial<T> & Context
+
+export type InyComponent<T> = Partial<T> & Context

@@ -8,14 +8,14 @@ Page({
     value: ''
   },
   onLoad: function () {
-    
+
   },
-  onInput (e) {
+  onInput(e) {
     this.setData({
       value: e.detail.value
     })
   },
-  submit () {
+  submit() {
     bus.emit('postMessage', '我是日志页面:' + this.data.value)
   }
 })

@@ -1,6 +1,5 @@
-import { Event, EventType } from './types'
-import { EventTypeEnum } from './enum'
-import { createUid } from './utils'
+import { Event } from '../types'
+import { createUid, once } from '../utils'
 
 class EventBus {
   /**
@@ -12,22 +11,24 @@ class EventBus {
    * on 新增事件监听
    * @param name 事件名
    * @param execute 回调函数
+   * @param ctx 上下文 this
    * @returns { string } eventId 事件ID，用户取消该事件监听
    */
 
-  on(name: string, execute: Function): string {
-    return this.addEvent(name, EventTypeEnum.NORMAL_EVENT, execute)
+  on(name: string, execute: Function, ctx?: any): string {
+    return this.addEvent(name, execute, ctx)
   }
 
   /**
    * one 只允许添加一次事件监听
    * @param name 事件名
    * @param execute 回调函数
+   * @param ctx 上下文 this
    * @returns { string } eventId 事件ID，用户取消该事件监听
    */
 
-  once(name: string, execute: Function): string {
-    return this.addEvent(name, EventTypeEnum.ONCE_EVENT, execute)
+  once(name: string, execute: Function, ctx?: any): string {
+    return this.addEvent(name, once(execute), ctx)
   }
 
   /**
@@ -40,21 +41,22 @@ class EventBus {
   remove(name: string, eventId: string): EventBus {
     const events = this.events
 
-    for (let i = 0; i < events.length; i++) {
-      if (events[i].name === name) {
-        // 移除具体的操作函数
-        if (eventId && events[i].executes.length > 0) {
-          const eventIndex = events[i].executes.findIndex(item => item.id === eventId)
+    const index = events.findIndex(event => event.name === name)
 
-          if (eventIndex !== -1) {
-            events[i].executes.splice(eventIndex, 1)
-          }
-        } else {
-          events.splice(i, 1)
-        }
+    if (index === -1) {
+      return this
+    }
 
-        return this
-      }
+    if (!eventId) {
+      events.splice(index, 1)
+
+      return this
+    }
+
+    const executeIndex = events[index].executes.findIndex(item => item.id === eventId)
+
+    if (executeIndex !== -1) {
+      events[index].executes.splice(executeIndex, 1)
     }
 
     return this
@@ -68,25 +70,19 @@ class EventBus {
    */
 
   emit(name: string, ...args: any[]): EventBus {
-    const events = this.events
+    const event = this.find(name)
 
-    for (let i = 0; i < events.length; i++) {
-      if (name === events[i].name) {
-        const funcs = events[i].executes
-
-        for (let z = 0; z < funcs.length; z++) {
-          const item = funcs[z]
-
-          item.execute(...args)
-
-          if (item.eventType === EventTypeEnum.ONCE_EVENT) {
-            funcs.splice(z, 1)
-          }
-        }
-
-        return this
-      }
+    if (!event) {
+      return this
     }
+    const funcs = event.executes
+
+    funcs.forEach(func => {
+      if (func.ctx) {
+        return func.execute.apply(func.ctx, args)
+      }
+      func.execute(...args)
+    })
 
     return this
   }
@@ -120,7 +116,7 @@ class EventBus {
    * @param execute
    */
 
-  private addEvent(name: string, eventType: EventType, execute: Function): string {
+  private addEvent(name: string, execute: Function, ctx?: any): string {
     const eventId = createUid()
 
     const events = this.events
@@ -128,7 +124,7 @@ class EventBus {
     const event = this.find(name)
 
     if (event !== null) {
-      event.executes.push({ id: eventId, eventType, execute })
+      event.executes.push({ id: eventId, execute, ctx })
 
       return eventId
     }
@@ -138,8 +134,8 @@ class EventBus {
       executes: [
         {
           id: eventId,
-          eventType,
-          execute
+          execute,
+          ctx
         }
       ]
     })

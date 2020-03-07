@@ -2,4 +2,6 @@
 <view class="container">
   <input class='input' bindinput='onInput' type='text' placeholder='请输入消息'></input>
   <button class='btn' bindtap="submit">发送</button>
+  <button class='btn' bindtap="call">给简化页打电话</button>
+  <button class='btn' bindtap="remind">给简化页提醒</button>
 </view>
