@@ -1,7 +1,7 @@
 
 //logs.js
 const util = require('../../utils/util.js')
-import bus from '../../plugins/iny-bus.js'
+import bus from '../../plugins/iny-bus/index.js'
 
 Page({
   data: {
@@ -18,5 +18,11 @@ Page({
   },
   submit () {
     bus.emit('postMessage', '我是我的页面:' + this.data.value)
+  },
+  call () {
+    bus.emit('callMe', '10010')
+  },
+  remind () {
+    bus.emit('remindMe', '10010')
   }
 })

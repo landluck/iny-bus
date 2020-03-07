@@ -11,22 +11,24 @@ class EventBus {
    * on 新增事件监听
    * @param name 事件名
    * @param execute 回调函数
+   * @param ctx 上下文 this
    * @returns { string } eventId 事件ID，用户取消该事件监听
    */
 
-  on(name: string, execute: Function): string {
-    return this.addEvent(name, execute)
+  on(name: string, execute: Function, ctx?: any): string {
+    return this.addEvent(name, execute, ctx)
   }
 
   /**
    * one 只允许添加一次事件监听
    * @param name 事件名
    * @param execute 回调函数
+   * @param ctx 上下文 this
    * @returns { string } eventId 事件ID，用户取消该事件监听
    */
 
-  once(name: string, execute: Function): string {
-    return this.addEvent(name, once(execute))
+  once(name: string, execute: Function, ctx?: any): string {
+    return this.addEvent(name, once(execute), ctx)
   }
 
   /**
@@ -76,6 +78,9 @@ class EventBus {
     const funcs = event.executes
 
     funcs.forEach(func => {
+      if (func.ctx) {
+        return func.execute.apply(func.ctx, args)
+      }
       func.execute(...args)
     })
 
@@ -111,7 +116,7 @@ class EventBus {
    * @param execute
    */
 
-  private addEvent(name: string, execute: Function): string {
+  private addEvent(name: string, execute: Function, ctx?: any): string {
     const eventId = createUid()
 
     const events = this.events
@@ -119,7 +124,7 @@ class EventBus {
     const event = this.find(name)
 
     if (event !== null) {
-      event.executes.push({ id: eventId, execute })
+      event.executes.push({ id: eventId, execute, ctx })
 
       return eventId
     }
@@ -129,7 +134,8 @@ class EventBus {
       executes: [
         {
           id: eventId,
-          execute
+          execute,
+          ctx
         }
       ]
     })

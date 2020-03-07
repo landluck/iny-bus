@@ -1,4 +1,4 @@
-import { COMPONENT_LIFE_TIMES } from './../config'
+import { COMPONENT_LIFE_TIMES } from '../config'
 import { Context, InyComponent } from '../types/index'
 import { onLoad, verifyEvents, onUnload } from './base'
 

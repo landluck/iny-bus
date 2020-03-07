@@ -1,5 +1,5 @@
 import { PlainObject } from '../../src/types/index'
-import inyPage from '../../src/iny/InyPage'
+import inyPage from '../../src/extends/page'
 import bus from '../../src/bus'
 
 describe('inyPage', () => {

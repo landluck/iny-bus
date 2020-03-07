@@ -1,5 +1,5 @@
 import { PlainObject } from './../../src/types/index'
-import inyApp from '../../src/iny/InyApp'
+import inyApp from '../../src/extends/app'
 import bus from '../../src/bus'
 
 describe('inyApp', () => {

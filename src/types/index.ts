@@ -3,9 +3,9 @@ export interface PlainObject {
 }
 
 export interface EventBus {
-  on(name: string, execute: Function): string
+  on(name: string, execute: Function, ctx?: any): string
 
-  once(name: string, execute: Function): string
+  once(name: string, execute: Function, ctx?: any): string
 
   remove(name: string, eventId?: string): EventBus
 
@@ -14,6 +14,12 @@ export interface EventBus {
   find(name: string): Event | null
 
   clear(): EventBus
+
+  app<T extends Context>(ctx: T): InyApp<T>
+
+  page<T extends Context>(ctx: T): InyPage<T>
+
+  component<T extends Context>(ctx: T): InyComponent<T>
 
   [propName: string]: any
 }
@@ -30,6 +36,7 @@ export interface Event {
 export interface Execute {
   id: string
   execute: Function
+  ctx?: any
 }
 
 export interface InyEvent {

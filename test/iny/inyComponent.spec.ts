@@ -1,5 +1,5 @@
 import { PlainObject } from '../../src/types/index'
-import inyComponent from '../../src/iny/InyComponent'
+import inyComponent from '../../src/extends/component'
 import bus from '../../src/bus'
 
 describe('inyComponent', () => {
@@ -102,6 +102,34 @@ describe('inyComponent', () => {
   })
 
   test('component.detached', () => {
+    const f1 = jest.fn()
+    const f2 = jest.fn()
+
+    const component = inyComponent<PlainObject>({
+      inyEvents: {
+        refreshComponent4: f1
+      },
+      detached: f2
+    })
+
+    component.created()
+
+    bus.emit('refreshComponent4')
+
+    expect(f1).toBeCalled()
+
+    component.detached()
+
+    expect(f2).toBeCalled()
+
+    expect(component.__inyEventIds).toBe(undefined)
+
+    bus.emit('refreshComponent4')
+
+    expect(f1).toBeCalledTimes(1)
+  })
+
+  test('component', () => {
     const f1 = jest.fn()
     const f2 = jest.fn()
 

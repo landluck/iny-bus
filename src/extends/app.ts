@@ -1,8 +1,8 @@
-import { Context, InyApp } from './../types/index'
-import { APP_LIFE_TIMES } from './../config'
+import { Context, InyApp } from '../types/index'
+import { APP_LIFE_TIMES } from '../config'
 import { onLoad, verifyEvents, onUnload } from './base'
 
-function InyApp<T extends Context>(ctx: T): InyApp<T> {
+function inyApp<T extends Context>(ctx: T): InyApp<T> {
   const { inyEvents } = ctx
 
   if (!verifyEvents(inyEvents)) {
@@ -16,4 +16,4 @@ function InyApp<T extends Context>(ctx: T): InyApp<T> {
   return ctx
 }
 
-export default InyApp
+export default inyApp

@@ -1,4 +1,4 @@
-import { PlainObject, InyEvents, Context, InyEventIdNames } from './../types/index'
+import { PlainObject, InyEvents, Context, InyEventIdNames } from '../types/index'
 import bus from '../bus'
 
 export function verifyEvents(inyEvents?: InyEvents): boolean {
@@ -13,7 +13,7 @@ export function onLoad(ctx: Context, onLoad: string): void {
   const func = ctx[onLoad]
 
   ctx[onLoad] = function(options: PlainObject): void {
-    const ids = addEvent(ctx.inyEvents!, ctx)
+    const ids = addEvent(ctx.inyEvents!, this)
 
     ctx.__inyEventIds = ids
 
@@ -32,7 +32,7 @@ export function onUnload(ctx: Context, onUnload: string): void {
     ctx.__inyEventIds!.forEach(event => bus.remove(event.name, event.id))
     ctx.__inyEventIds = undefined
 
-    func && func.call(ctx)
+    func && func.call(this)
   }
 }
 
@@ -42,7 +42,7 @@ export function addEvent(events: InyEvents, ctx: Context): InyEventIdNames[] {
       const event = events[name]
 
       if (typeof event === 'function') {
-        return { id: bus.on(name, event), name }
+        return { id: bus.on(name, event, ctx), name }
       }
 
       if (typeof event.handler !== 'function') {
@@ -50,10 +50,10 @@ export function addEvent(events: InyEvents, ctx: Context): InyEventIdNames[] {
       }
 
       if (event.once) {
-        return { id: bus.once(name, event.handler), name }
+        return { id: bus.once(name, event.handler, ctx), name }
       }
 
-      return { id: bus.on(name, event.handler), name }
+      return { id: bus.on(name, event.handler, ctx), name }
     })
     .filter(item => !!item.id)
 }
