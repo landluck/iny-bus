@@ -179,7 +179,7 @@ var COMPONENT_LIFE_TIMES = isAliPay()
     };
 
 function verifyEvents(busEvents) {
-    if (!busEvents || typeof busEvents !== 'object') {
+    if (!busEvents) {
         return false;
     }
     return true;
@@ -204,21 +204,16 @@ function onUnload(ctx, onUnload) {
     };
 }
 function addEvent(events, ctx) {
-    return Object.keys(events)
-        .map(function (name) {
+    return Object.keys(events).map(function (name) {
         var event = events[name];
         if (typeof event === 'function') {
             return { id: bus.on(name, event, ctx), name: name };
-        }
-        if (typeof event.handler !== 'function') {
-            return { id: '', name: name };
         }
         if (event.once) {
             return { id: bus.once(name, event.handler, ctx), name: name };
         }
         return { id: bus.on(name, event.handler, ctx), name: name };
-    })
-        .filter(function (item) { return !!item.id; });
+    });
 }
 
 function inyApp(ctx) {

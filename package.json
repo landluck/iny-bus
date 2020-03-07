@@ -22,7 +22,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts'",
+    "lint": "tslint  --project tsconfig.json -t codeFrame './src/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
     "start": "rollup -c rollup.config.ts -w",
@@ -41,7 +41,7 @@
     "pub_docs": "sh release-docs.sh"
   },
   "lint-staged": {
-    "{src,test}/**/*.ts": [
+    "{src}/**/*.ts": [
       "npm run lint",
       "prettier --write",
       "npm run test",
