@@ -33,7 +33,7 @@
 
   有，有的同学说，我可以用 `getCurrentPages` 获取页面栈，然后找到对应的 页面实例，调用实例方法，去刷新数据
 
-  这也是解决问题的一个办法，然而，当你需要刷新两个页面呢，三个页面呢，是不是要处理很多
+  这也是解决问题的一个办法，然而，当你需要刷新tab页呢，需要刷新两个页面呢，三个页面呢，是不是要处理很多
 
   `iny-bus` 就是一个非常好的解决方法，请求放置于 `onLoad，数据随时随地刷新，便于控制，代码量极小，经过业务考验`
 
@@ -69,9 +69,45 @@ yarn add iny-bus --production
 git clone https://github.com/landluck/iny-bus.git
 ```
 
-## 基本使用方法
+## 使用
 
-1. 在小程序中使用
+### 使用内置方法
+
+```javascript
+
+  // App、Page、Component 使用方法一致
+  import bus from 'iny-bus'
+
+  // bus.app bus.page bus.component
+  const page = bus.page({
+    busEvents: {
+      // 简单使用
+      postMessage(msg) {
+        this.setData({
+          msg
+        })
+      },
+      // 一次性事件
+      postMessageOnce: {
+        handler (msg) {
+          this.setData({
+            msg
+          })
+        },
+        once: true
+      }
+    },
+    onLoad() {
+      bus.emit('postMessage', 'hello bus')
+      bus.emit('postMessageOnce', 'hello bus once')
+    }
+  })
+
+  Page(page)
+
+```
+
+### 在生命周期中使用
 
 ```javascript
 
