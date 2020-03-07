@@ -909,11 +909,14 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-enum">
-			<a href="enums/eventtypeenum.html" class="tsd-kind-icon">Event<wbr>Type<wbr>Enum</a>
-		</li>
 		<li class=" tsd-kind-class">
 			<a href="classes/eventbus.html" class="tsd-kind-icon">Event<wbr>Bus</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/busevents.html" class="tsd-kind-icon">Bus<wbr>Events</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/context.html" class="tsd-kind-icon">Context</a>
 		</li>
 		<li class=" tsd-kind-interface">
 			<a href="interfaces/event.html" class="tsd-kind-icon">Event</a>
@@ -924,17 +927,65 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-interface">
 			<a href="interfaces/execute.html" class="tsd-kind-icon">Execute</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/inyevent.html" class="tsd-kind-icon">Iny<wbr>Event</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/inyeventidnames.html" class="tsd-kind-icon">Iny<wbr>Event<wbr>IdNames</a>
+		</li>
+		<li class=" tsd-kind-interface">
+			<a href="interfaces/plainobject.html" class="tsd-kind-icon">Plain<wbr>Object</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#inyapp" class="tsd-kind-icon">Iny<wbr>App</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#inycomponent" class="tsd-kind-icon">Iny<wbr>Component</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+			<a href="globals.html#inypage" class="tsd-kind-icon">Iny<wbr>Page</a>
+		</li>
+		<li class=" tsd-kind-variable">
+			<a href="globals.html#component_life_times" class="tsd-kind-icon">COMPONENT_<wbr>LIFE_<wbr>TIMES</a>
 		</li>
 		<li class=" tsd-kind-variable">
 			<a href="globals.html#bus" class="tsd-kind-icon">bus</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#inycomponents" class="tsd-kind-icon">Iny<wbr>Components</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#addevent" class="tsd-kind-icon">add<wbr>Event</a>
 		</li>
 		<li class=" tsd-kind-function tsd-is-not-exported">
 			<a href="globals.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#createuid" class="tsd-kind-icon">create<wbr>Uid</a>
+		</li>
+		<li class=" tsd-kind-function tsd-has-type-parameter">
+			<a href="globals.html#inyapp" class="tsd-kind-icon">iny<wbr>App</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#isalipay" class="tsd-kind-icon">is<wbr>Ali<wbr>Pay</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#onload" class="tsd-kind-icon">on<wbr>Load</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#onunload" class="tsd-kind-icon">on<wbr>Unload</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#once" class="tsd-kind-icon">once</a>
+		</li>
+		<li class=" tsd-kind-function">
+			<a href="globals.html#verifyevents" class="tsd-kind-icon">verify<wbr>Events</a>
+		</li>
+		<li class=" tsd-kind-object-literal">
+			<a href="globals.html#app_life_times" class="tsd-kind-icon">APP_<wbr>LIFE_<wbr>TIMES</a>
+		</li>
+		<li class=" tsd-kind-object-literal">
+			<a href="globals.html#page_life_times" class="tsd-kind-icon">PAGE_<wbr>LIFE_<wbr>TIMES</a>
 		</li>
 	</ul>
 </nav>
@@ -960,7 +1011,7 @@ img { max-width: 100%; }
 					<p>  但是，所有请求放置于 <code>onShow</code> 中，就会造成服务器压力，多余的请求，用户体验不好的问题</p>
 					<p>  那么，有别的解决办法吗</p>
 					<p>  有，有的同学说，我可以用 <code>getCurrentPages</code> 获取页面栈，然后找到对应的 页面实例，调用实例方法，去刷新数据</p>
-					<p>  这也是解决问题的一个办法，然而，当你需要刷新两个页面呢，三个页面呢，是不是要处理很多</p>
+					<p>  这也是解决问题的一个办法，然而，当你需要刷新tab页呢，需要刷新两个页面呢，三个页面呢，是不是要处理很多</p>
 					<p>  <code>iny-bus</code> 就是一个非常好的解决方法，请求放置于 <code>onLoad，数据随时随地刷新，便于控制，代码量极小，经过业务考验</code></p>
 					<p>  只要是能运行 <code>js</code> 的地方，<code>iny-bus</code> 就支持</p>
 					<h2 id="-">功能</h2>
@@ -981,10 +1032,40 @@ yarn add iny-bus --production</code></pre>
 					<h3 id="-">方式二. 下载代码</h3>
 					<p>直接通过 git 下载 iny-bus 源代码，并将<code>dist</code>目录 中的 index.js 拷贝到自己的项目中</p>
 					<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/landluck/iny-bus.git</code></pre>
-					<h2 id="-">基本使用方法</h2>
-					<ol>
-						<li>在小程序中使用</li>
-					</ol>
+					<h2 id="-">使用</h2>
+					<h3 id="-">使用内置方法</h3>
+					<pre><code class="language-javascript">
+  <span class="hljs-comment">// App、Page、Component 使用方法一致</span>
+  <span class="hljs-keyword">import</span> bus <span class="hljs-keyword">from</span> <span class="hljs-string">'iny-bus'</span>
+
+  <span class="hljs-comment">// bus.app bus.page bus.component</span>
+  <span class="hljs-keyword">const</span> page = bus.page({
+    <span class="hljs-attr">busEvents</span>: {
+      <span class="hljs-comment">// 简单使用</span>
+      postMessage(msg) {
+        <span class="hljs-keyword">this</span>.setData({
+          msg
+        })
+      },
+      <span class="hljs-comment">// 一次性事件</span>
+      postMessageOnce: {
+        handler (msg) {
+          <span class="hljs-keyword">this</span>.setData({
+            msg
+          })
+        },
+        <span class="hljs-attr">once</span>: <span class="hljs-literal">true</span>
+      }
+    },
+    onLoad() {
+      bus.emit(<span class="hljs-string">'postMessage'</span>, <span class="hljs-string">'hello bus'</span>)
+      bus.emit(<span class="hljs-string">'postMessageOnce'</span>, <span class="hljs-string">'hello bus once'</span>)
+    }
+  })
+
+  Page(page)
+</code></pre>
+					<h3 id="-">在生命周期中使用</h3>
 					<pre><code class="language-javascript">
   <span class="hljs-comment">// 小程序</span>
   <span class="hljs-keyword">import</span> bus <span class="hljs-keyword">from</span> <span class="hljs-string">'iny-bus'</span>
@@ -1036,12 +1117,6 @@ yarn add iny-bus --production</code></pre>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Enumerations</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-enum"><a href="enums/eventtypeenum.html" class="tsd-kind-icon">Event<wbr>Type<wbr>Enum</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
 						<h3>Classes</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-class"><a href="classes/eventbus.html" class="tsd-kind-icon">Event<wbr>Bus</a></li>
@@ -1050,28 +1125,51 @@ yarn add iny-bus --production</code></pre>
 					<section class="tsd-index-section ">
 						<h3>Interfaces</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-interface"><a href="interfaces/busevents.html" class="tsd-kind-icon">Bus<wbr>Events</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/context.html" class="tsd-kind-icon">Context</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/event.html" class="tsd-kind-icon">Event</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/eventbusinstance.html" class="tsd-kind-icon">Event<wbr>Bus<wbr>Instance</a></li>
 							<li class="tsd-kind-interface"><a href="interfaces/execute.html" class="tsd-kind-icon">Execute</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/inyevent.html" class="tsd-kind-icon">Iny<wbr>Event</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/inyeventidnames.html" class="tsd-kind-icon">Iny<wbr>Event<wbr>IdNames</a></li>
+							<li class="tsd-kind-interface"><a href="interfaces/plainobject.html" class="tsd-kind-icon">Plain<wbr>Object</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-type-alias"><a href="globals.html#eventtype" class="tsd-kind-icon">Event<wbr>Type</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#inyapp" class="tsd-kind-icon">Iny<wbr>App</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#inycomponent" class="tsd-kind-icon">Iny<wbr>Component</a></li>
+							<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#inypage" class="tsd-kind-icon">Iny<wbr>Page</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Variables</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable"><a href="globals.html#component_life_times" class="tsd-kind-icon">COMPONENT_<wbr>LIFE_<wbr>TIMES</a></li>
 							<li class="tsd-kind-variable"><a href="globals.html#bus" class="tsd-kind-icon">bus</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#inycomponents" class="tsd-kind-icon">Iny<wbr>Components</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#addevent" class="tsd-kind-icon">add<wbr>Event</a></li>
 							<li class="tsd-kind-function tsd-is-not-exported"><a href="globals.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#createuid" class="tsd-kind-icon">create<wbr>Uid</a></li>
+							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#inyapp" class="tsd-kind-icon">iny<wbr>App</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#isalipay" class="tsd-kind-icon">is<wbr>Ali<wbr>Pay</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#onload" class="tsd-kind-icon">on<wbr>Load</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#onunload" class="tsd-kind-icon">on<wbr>Unload</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#once" class="tsd-kind-icon">once</a></li>
+							<li class="tsd-kind-function"><a href="globals.html#verifyevents" class="tsd-kind-icon">verify<wbr>Events</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Object literals</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-object-literal"><a href="globals.html#app_life_times" class="tsd-kind-icon">APP_<wbr>LIFE_<wbr>TIMES</a></li>
+							<li class="tsd-kind-object-literal"><a href="globals.html#page_life_times" class="tsd-kind-icon">PAGE_<wbr>LIFE_<wbr>TIMES</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1079,32 +1177,147 @@ yarn add iny-bus --production</code></pre>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="eventtype" class="tsd-anchor"></a>
-				<h3>Event<wbr>Type</h3>
-				<div class="tsd-signature tsd-kind-icon">Event<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">1</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">2</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="inyapp" class="tsd-anchor"></a>
+				<h3>Iny<wbr>App</h3>
+				<div class="tsd-signature tsd-kind-icon">Iny<wbr>App<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/127dbb4/src/types/index.ts#L21">types/index.ts:21</a></li>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/types/index.ts#L62">types/index.ts:62</a></li>
 					</ul>
 				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="inycomponent" class="tsd-anchor"></a>
+				<h3>Iny<wbr>Component</h3>
+				<div class="tsd-signature tsd-kind-icon">Iny<wbr>Component<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/types/index.ts#L66">types/index.ts:66</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+				<a name="inypage" class="tsd-anchor"></a>
+				<h3>Iny<wbr>Page</h3>
+				<ul class="tsd-signatures tsd-kind-type-alias tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">Iny<wbr>Page&lt;T&gt;<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="" class="tsd-signature-type">InyPage</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/page.ts#L5">extends/page.ts:5</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>T<span class="tsd-signature-symbol">: </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a></h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ctx: <span class="tsd-signature-type">T</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="" class="tsd-signature-type">InyPage</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Variables</h2>
+			<section class="tsd-panel tsd-member tsd-kind-variable">
+				<a name="component_life_times" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> COMPONENT_<wbr>LIFE_<wbr>TIMES</h3>
+				<div class="tsd-signature tsd-kind-icon">COMPONENT_<wbr>LIFE_<wbr>TIMES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;isAliPay()? {onLoad: &#x27;onInit&#x27;,onUnload: &#x27;didUnmount&#x27;}: {onLoad: &#x27;created&#x27;,onUnload: &#x27;detached&#x27;}</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L13">config.ts:13</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+						<li class="tsd-parameter">
+							<h5>on<wbr>Load<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>on<wbr>Unload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+						</li>
+					</ul>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-variable">
 				<a name="bus" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> bus</h3>
 				<div class="tsd-signature tsd-kind-icon">bus<span class="tsd-signature-symbol">:</span> <a href="interfaces/eventbusinstance.html" class="tsd-signature-type">EventBusInstance</a><span class="tsd-signature-symbol"> =&nbsp;createInstance()</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/127dbb4/src/bus.ts#L11">bus.ts:11</a></li>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/bus.ts#L10">bus.ts:10</a></li>
 					</ul>
 				</aside>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Functions</h2>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="inycomponents" class="tsd-anchor"></a>
+				<h3>Iny<wbr>Components</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">Iny<wbr>Components&lt;T&gt;<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#inycomponent" class="tsd-signature-type">InyComponent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/component.ts#L5">extends/component.ts:5</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>T<span class="tsd-signature-symbol">: </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a></h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ctx: <span class="tsd-signature-type">T</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="globals.html#inycomponent" class="tsd-signature-type">InyComponent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="addevent" class="tsd-anchor"></a>
+				<h3>add<wbr>Event</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">add<wbr>Event<span class="tsd-signature-symbol">(</span>events<span class="tsd-signature-symbol">: </span><a href="interfaces/busevents.html" class="tsd-signature-type">BusEvents</a>, ctx<span class="tsd-signature-symbol">: </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/inyeventidnames.html" class="tsd-signature-type">InyEventIdNames</a><span class="tsd-signature-symbol">[]</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/base.ts#L39">extends/base.ts:39</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>events: <a href="interfaces/busevents.html" class="tsd-signature-type">BusEvents</a></h5>
+							</li>
+							<li>
+								<h5>ctx: <a href="interfaces/context.html" class="tsd-signature-type">Context</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="interfaces/inyeventidnames.html" class="tsd-signature-type">InyEventIdNames</a><span class="tsd-signature-symbol">[]</span></h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-is-not-exported">
 				<a name="createinstance" class="tsd-anchor"></a>
 				<h3>create<wbr>Instance</h3>
@@ -1115,7 +1328,7 @@ yarn add iny-bus --production</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/127dbb4/src/bus.ts#L5">bus.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/bus.ts#L4">bus.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="interfaces/eventbusinstance.html" class="tsd-signature-type">EventBusInstance</a></h4>
@@ -1132,7 +1345,7 @@ yarn add iny-bus --production</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/127dbb4/src/utils.ts#L5">utils.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/utils.ts#L5">utils.ts:5</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1143,6 +1356,213 @@ yarn add iny-bus --production</code></pre>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+				<a name="inyapp" class="tsd-anchor"></a>
+				<h3>iny<wbr>App</h3>
+				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">iny<wbr>App&lt;T&gt;<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#inyapp" class="tsd-signature-type">InyApp</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/app.ts#L5">extends/app.ts:5</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>T<span class="tsd-signature-symbol">: </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a></h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ctx: <span class="tsd-signature-type">T</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="globals.html#inyapp" class="tsd-signature-type">InyApp</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="isalipay" class="tsd-anchor"></a>
+				<h3>is<wbr>Ali<wbr>Pay</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Ali<wbr>Pay<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/env.ts#L1">env.ts:1</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="onload" class="tsd-anchor"></a>
+				<h3>on<wbr>Load</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">on<wbr>Load<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a>, onLoad<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/base.ts#L12">extends/base.ts:12</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ctx: <a href="interfaces/context.html" class="tsd-signature-type">Context</a></h5>
+							</li>
+							<li>
+								<h5>onLoad: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="onunload" class="tsd-anchor"></a>
+				<h3>on<wbr>Unload</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">on<wbr>Unload<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="interfaces/context.html" class="tsd-signature-type">Context</a>, onUnload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/base.ts#L24">extends/base.ts:24</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ctx: <a href="interfaces/context.html" class="tsd-signature-type">Context</a></h5>
+							</li>
+							<li>
+								<h5>onUnload: <span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="once" class="tsd-anchor"></a>
+				<h3>once</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/utils.ts#L11">utils.ts:11</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>fn: <span class="tsd-signature-type">Function</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-function">
+				<a name="verifyevents" class="tsd-anchor"></a>
+				<h3>verify<wbr>Events</h3>
+				<ul class="tsd-signatures tsd-kind-function">
+					<li class="tsd-signature tsd-kind-icon">verify<wbr>Events<span class="tsd-signature-symbol">(</span>busEvents<span class="tsd-signature-symbol">?: </span><a href="interfaces/busevents.html" class="tsd-signature-type">BusEvents</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/extends/base.ts#L4">extends/base.ts:4</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> busEvents: <a href="interfaces/busevents.html" class="tsd-signature-type">BusEvents</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Object literals</h2>
+			<section class="tsd-panel tsd-member tsd-kind-object-literal">
+				<a name="app_life_times" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> APP_<wbr>LIFE_<wbr>TIMES</h3>
+				<div class="tsd-signature tsd-kind-icon">APP_<wbr>LIFE_<wbr>TIMES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L8">config.ts:8</a></li>
+					</ul>
+				</aside>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+					<a name="app_life_times.onload" class="tsd-anchor"></a>
+					<h3>on<wbr>Load</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;onLaunch&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L9">config.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+					<a name="app_life_times.onunload" class="tsd-anchor"></a>
+					<h3>on<wbr>Unload</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Unload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L10">config.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-object-literal">
+				<a name="page_life_times" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> PAGE_<wbr>LIFE_<wbr>TIMES</h3>
+				<div class="tsd-signature tsd-kind-icon">PAGE_<wbr>LIFE_<wbr>TIMES<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L3">config.ts:3</a></li>
+					</ul>
+				</aside>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+					<a name="page_life_times.onload" class="tsd-anchor"></a>
+					<h3>on<wbr>Load</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;onLoad&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L4">config.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+					<a name="page_life_times.onunload" class="tsd-anchor"></a>
+					<h3>on<wbr>Unload</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Unload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;onUnload&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/landluck/iny-bus/blob/497f95e/src/config.ts#L5">config.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 		</section>
 		<footer class="with-border-bottom">
