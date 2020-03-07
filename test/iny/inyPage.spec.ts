@@ -9,7 +9,7 @@ describe('inyPage', () => {
     expect(page.__inyEventIds).toBe(undefined)
 
     const page2 = inyPage<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshPage: () => {}
       }
     })
@@ -32,7 +32,7 @@ describe('inyPage', () => {
     const f1 = jest.fn()
 
     const page = inyPage<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshPage2: f1
       }
     })
@@ -49,7 +49,7 @@ describe('inyPage', () => {
     const f1 = jest.fn()
 
     const page = inyPage<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshPage3: {
           handler: f1
         }
@@ -68,7 +68,7 @@ describe('inyPage', () => {
     const f1 = jest.fn()
 
     const page = inyPage<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshPage3: {
           handler: f1,
           once: true
@@ -87,7 +87,7 @@ describe('inyPage', () => {
     const f1 = jest.fn()
 
     const page = inyPage<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshPage3: () => {}
       },
       onLoad: f1
@@ -103,7 +103,7 @@ describe('inyPage', () => {
     const f2 = jest.fn()
 
     const page = inyPage<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshPage4: f1
       },
       onUnload: f2

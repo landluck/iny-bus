@@ -3,9 +3,9 @@ import { Context, InyComponent } from '../types/index'
 import { onLoad, verifyEvents, onUnload } from './base'
 
 function InyComponents<T extends Context>(ctx: T): InyComponent<T> {
-  const { inyEvents } = ctx
+  const { busEvents } = ctx
 
-  if (!verifyEvents(inyEvents)) {
+  if (!verifyEvents(busEvents)) {
     return ctx
   }
 

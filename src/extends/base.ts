@@ -1,8 +1,8 @@
-import { PlainObject, InyEvents, Context, InyEventIdNames } from '../types/index'
+import { PlainObject, busEvents, Context, InyEventIdNames } from '../types/index'
 import bus from '../bus'
 
-export function verifyEvents(inyEvents?: InyEvents): boolean {
-  if (!inyEvents || typeof inyEvents !== 'object') {
+export function verifyEvents(busEvents?: busEvents): boolean {
+  if (!busEvents || typeof busEvents !== 'object') {
     return false
   }
 
@@ -13,7 +13,7 @@ export function onLoad(ctx: Context, onLoad: string): void {
   const func = ctx[onLoad]
 
   ctx[onLoad] = function(options: PlainObject): void {
-    const ids = addEvent(ctx.inyEvents!, this)
+    const ids = addEvent(ctx.busEvents!, this)
 
     ctx.__inyEventIds = ids
 
@@ -36,7 +36,7 @@ export function onUnload(ctx: Context, onUnload: string): void {
   }
 }
 
-export function addEvent(events: InyEvents, ctx: Context): InyEventIdNames[] {
+export function addEvent(events: busEvents, ctx: Context): InyEventIdNames[] {
   return Object.keys(events)
     .map(name => {
       const event = events[name]

@@ -9,7 +9,7 @@ describe('inyComponent', () => {
     expect(component.__inyEventIds).toBe(undefined)
 
     const component2 = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent: () => {}
       }
     })
@@ -35,7 +35,7 @@ describe('inyComponent', () => {
     const f1 = jest.fn()
 
     const component = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent2: f1
       }
     })
@@ -52,7 +52,7 @@ describe('inyComponent', () => {
     const f1 = jest.fn()
 
     const component = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent3: {
           handler: f1
         }
@@ -71,7 +71,7 @@ describe('inyComponent', () => {
     const f1 = jest.fn()
 
     const component = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent3: {
           handler: f1,
           once: true
@@ -90,7 +90,7 @@ describe('inyComponent', () => {
     const f1 = jest.fn()
 
     const component = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent3: () => {}
       },
       created: f1
@@ -106,7 +106,7 @@ describe('inyComponent', () => {
     const f2 = jest.fn()
 
     const component = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent4: f1
       },
       detached: f2
@@ -134,7 +134,7 @@ describe('inyComponent', () => {
     const f2 = jest.fn()
 
     const component = inyComponent<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshComponent4: f1
       },
       detached: f2

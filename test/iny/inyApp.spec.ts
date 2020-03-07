@@ -9,7 +9,7 @@ describe('inyApp', () => {
     expect(app.__inyEventIds).toBe(undefined)
 
     const app2 = inyApp<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshApp: () => {},
         refreshAppError: 'xxx'
       }
@@ -34,7 +34,7 @@ describe('inyApp', () => {
     const f1 = jest.fn()
 
     const app = inyApp<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshApp2: f1
       }
     })
@@ -51,7 +51,7 @@ describe('inyApp', () => {
     const f1 = jest.fn()
 
     const app = inyApp<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshApp3: {
           handler: f1
         }
@@ -70,7 +70,7 @@ describe('inyApp', () => {
     const f1 = jest.fn()
 
     const app = inyApp<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshApp3: {
           handler: f1,
           once: true
@@ -89,7 +89,7 @@ describe('inyApp', () => {
     const f1 = jest.fn()
 
     const app = inyApp<PlainObject>({
-      inyEvents: {
+      busEvents: {
         refreshApp3: () => {}
       },
       onLaunch: f1

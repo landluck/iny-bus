@@ -3,9 +3,9 @@ import { PAGE_LIFE_TIMES } from '../config'
 import { onLoad, verifyEvents, onUnload } from './base'
 
 function InyPage<T extends Context>(ctx: T): InyPage<T> {
-  const { inyEvents } = ctx
+  const { busEvents } = ctx
 
-  if (!verifyEvents(inyEvents)) {
+  if (!verifyEvents(busEvents)) {
     return ctx
   }
 

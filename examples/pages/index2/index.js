@@ -6,7 +6,7 @@ const app = getApp()
     data: {
       msg: ['简化用法消息']
     },
-    inyEvents: {
+    busEvents: {
       postMessage(msg) {
         this.setData({
           msg: this.data.msg.concat([msg])

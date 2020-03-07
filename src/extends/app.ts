@@ -3,9 +3,9 @@ import { APP_LIFE_TIMES } from '../config'
 import { onLoad, verifyEvents, onUnload } from './base'
 
 function inyApp<T extends Context>(ctx: T): InyApp<T> {
-  const { inyEvents } = ctx
+  const { busEvents } = ctx
 
-  if (!verifyEvents(inyEvents)) {
+  if (!verifyEvents(busEvents)) {
     return ctx
   }
 

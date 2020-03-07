@@ -178,8 +178,8 @@ var COMPONENT_LIFE_TIMES = isAliPay()
         onUnload: 'detached'
     };
 
-function verifyEvents(inyEvents) {
-    if (!inyEvents || typeof inyEvents !== 'object') {
+function verifyEvents(busEvents) {
+    if (!busEvents || typeof busEvents !== 'object') {
         return false;
     }
     return true;
@@ -187,7 +187,7 @@ function verifyEvents(inyEvents) {
 function onLoad(ctx, onLoad) {
     var func = ctx[onLoad];
     ctx[onLoad] = function (options) {
-        var ids = addEvent(ctx.inyEvents, this);
+        var ids = addEvent(ctx.busEvents, this);
         ctx.__inyEventIds = ids;
         func && func.call(this, options);
     };
@@ -222,8 +222,8 @@ function addEvent(events, ctx) {
 }
 
 function inyApp(ctx) {
-    var inyEvents = ctx.inyEvents;
-    if (!verifyEvents(inyEvents)) {
+    var busEvents = ctx.busEvents;
+    if (!verifyEvents(busEvents)) {
         return ctx;
     }
     onLoad(ctx, APP_LIFE_TIMES.onLoad);
@@ -232,8 +232,8 @@ function inyApp(ctx) {
 }
 
 function InyPage(ctx) {
-    var inyEvents = ctx.inyEvents;
-    if (!verifyEvents(inyEvents)) {
+    var busEvents = ctx.busEvents;
+    if (!verifyEvents(busEvents)) {
         return ctx;
     }
     onLoad(ctx, PAGE_LIFE_TIMES.onLoad);
@@ -242,8 +242,8 @@ function InyPage(ctx) {
 }
 
 function InyComponents(ctx) {
-    var inyEvents = ctx.inyEvents;
-    if (!verifyEvents(inyEvents)) {
+    var busEvents = ctx.busEvents;
+    if (!verifyEvents(busEvents)) {
         return ctx;
     }
     onLoad(ctx, COMPONENT_LIFE_TIMES.onLoad);

@@ -29,7 +29,7 @@ export interface InyEvent {
     handler: (...args: any[]) => any;
     once: boolean;
 }
-export interface InyEvents {
+export interface busEvents {
     [prop: string]: ((...args: any[]) => any) | InyEvent;
 }
 export interface InyEventIdNames {
@@ -37,7 +37,7 @@ export interface InyEventIdNames {
     name: string;
 }
 export interface Context {
-    inyEvents?: InyEvents;
+    busEvents?: busEvents;
     __inyEventIds?: InyEventIdNames[];
     [prop: string]: any;
 }
